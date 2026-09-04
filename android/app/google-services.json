@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "47514061845",
+    "project_id": "tpipay-5650e",
+    "storage_bucket": "tpipay-5650e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47514061845:android:7808eb3145eb8fa0a7521c",
+        "android_client_info": {
+          "package_name": "com.myfoozzybusiness"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPy3qEM6gi5l16mIqA50dPvJ8BR82hGeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
