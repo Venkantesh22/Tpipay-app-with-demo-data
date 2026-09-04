@@ -2,6 +2,8 @@ import 'dart:developer';
 import 'package:get/instance_manager.dart';
 import 'package:lekra/controllers/basic_controlller.dart';
 import 'package:lekra/controllers/card_controller.dart';
+import 'package:lekra/controllers/card_money_controller/credit_card_controller.dart';
+import 'package:lekra/controllers/card_money_controller/custom_kyc_controller.dart';
 import 'package:lekra/controllers/dashboard_controller.dart';
 import 'package:lekra/controllers/dispute_controller.dart';
 import 'package:lekra/controllers/form_controller.dart';
@@ -12,6 +14,9 @@ import 'package:lekra/controllers/report_contoller.dart';
 import 'package:lekra/controllers/voice_service_controller.dart';
 import 'package:lekra/controllers/wallet_controller.dart';
 import 'package:lekra/data/repositories/card_repo.dart';
+import 'package:lekra/data/repositories/card_withdrawal_repo/credit_card_repo.dart';
+import 'package:lekra/data/repositories/card_withdrawal_repo/custom_kyc_repo.dart';
+import 'package:lekra/data/repositories/card_withdrawal_repo/upi_bank_repo.dart';
 import 'package:lekra/data/repositories/dispute_repo.dart';
 import 'package:lekra/data/repositories/form_repo.dart';
 import 'package:lekra/data/repositories/mobile_service_repo.dart';
@@ -68,6 +73,11 @@ class Init {
             prepaidClient: Get.find<ApiClient>(tag: "prepaid"),
           ));
 
+          //* Custom KYC controller
+      Get.lazyPut(() => CustomKycRepo(apiClient: Get.find()));
+      Get.lazyPut(() => CreditCardRepo(apiClient: Get.find()));
+      Get.lazyPut(() => UpiBankRepo(apiClient: Get.find()));
+
       // Get Controller's...
       Get.lazyPut(() => DashBoardController());
       Get.lazyPut(() => AuthController(
@@ -90,6 +100,19 @@ class Init {
           authRepo: Get.find(),
           sharedPreferences: sharedPreferences));
       Get.lazyPut(() => VoiceServiceController());
+            //* Custom KYC controller
+
+      Get.lazyPut(() => CustomKycController(
+            customKycRepo: Get.find(),
+            sharedPreferences: Get.find(),
+          ));
+
+      //* cried card controller
+
+      Get.lazyPut(() => CreditCardController(
+            creditCardRepo: Get.find(),
+            sharedPreferences: Get.find(),
+          ));
     } catch (e) {
       log('---- ${e.toString()} ----', name: "ERROR AT initialize()");
     }

@@ -10,6 +10,10 @@ class Assets {
   /// assets/images/bank-logo.png
   static const String imagesBankLogo = "assets/images/bank-logo.png";
 
+  /// Assets for imagesBankUpi
+  /// assets/images/bank-upi.png
+  static const String imagesBankUpi = "assets/images/bank-upi.png";
+
   /// Assets for imagesCard
   /// assets/images/card.png
   static const String imagesCard = "assets/images/card.png";
@@ -105,6 +109,10 @@ class Assets {
   /// Assets for imagesQR
   /// assets/images/QR.png
   static const String imagesQR = "assets/images/QR.png";
+
+  /// Assets for imagesSearchInMobile
+  /// assets/images/search-in-mobile.png
+  static const String imagesSearchInMobile = "assets/images/search-in-mobile.png";
 
   /// Assets for imagesServiceTopBg
   /// assets/images/service-top-bg.png
@@ -341,6 +349,10 @@ class Assets {
   /// Assets for svgsStar
   /// assets/svgs/star.svg
   static const String svgsStar = "assets/svgs/star.svg";
+
+  /// Assets for svgsUpi
+  /// assets/svgs/upi.svg
+  static const String svgsUpi = "assets/svgs/upi.svg";
 
   /// Assets for svgsUpperCrossArrow
   /// assets/svgs/upper-cross-arrow.svg

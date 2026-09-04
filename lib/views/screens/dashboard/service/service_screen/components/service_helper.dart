@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lekra/controllers/auth_controller.dart';
 import 'package:lekra/services/constants.dart';
 import 'package:lekra/views/screens/dashboard/service/all_service/collect_payment_service/collect_payment_service_screen.dart';
+import 'package:lekra/views/screens/dashboard/service/all_service/creadit_card/screen/check_custom_kyc/check_custom_kyc_screen.dart';
 import 'package:lekra/views/screens/dashboard/service/all_service/recharges_service/recharge/rechare_select_numbert/mobile_recharge_screen/recharge_select_number_screen.dart';
 
 class ServiceHelper {
@@ -27,7 +28,7 @@ class ServiceHelper {
       case bool _ when service.isCreditCardToRentPayment == true:
         navigate(
           context: context,
-          page: const RechargeSelectNumberScreen(isMobile: true),
+          page: const CheckCustomerKycScreen(),
         );
         break;
 

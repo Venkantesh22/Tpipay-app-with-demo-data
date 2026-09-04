@@ -253,10 +253,74 @@ class AppConstants {
   static const String postPrepaidCardMiniStatement =
       'api/prepaid-card/v1/mini-statement';
 
+  //* Credit card withdrawal api
+
+  static const String postSubmitCustomKyc =
+      'api/credit-card-cash-withdrawal/v1/kyc';
+
+  static const String postCustomerKycMobileCreditCardOTP =
+      "api/credit-card-cash-withdrawal/v1/send-kyc-otp";
+
+  static const String postCustomerKycMobileCreditCarVerify =
+      "api/credit-card-cash-withdrawal/v1/verify-kyc-otp";
+
+  //* Credit card withdrawal api
+
+  static const String postCheckCustomer =
+      "api/credit-card-cash-withdrawal/v1/check-kyc";
+
+  static const String postCardWithdrawalCustomerKYC =
+      "api/credit-card-cash-withdrawal/v1/submit-kyc";
+
+  static const String postCardWithdrawalInitiate =
+      "api/credit-card-cash-withdrawal/v1/initiate-withdrawal";
+
+  static const String postCreditCardOTPVerify =
+      "api/credit-card-cash-withdrawal/v1/verify-withdrawal-otp";
+
+  static const String postResendCreditCardOTP =
+      "api/credit-card-cash-withdrawal/v1/resend-otp";
+
+//* UPI flow Api
+
+  static const String postValidateCustomerUPI =
+      "api/credit-card-cash-withdrawal/v1/validate-upi";
+
+  static const String postSendMoneyToUPIOrBank =
+      "api/credit-card-cash-withdrawal/v1/process-settlement";
+
+  //* Credit card money want cash
+
+  static const String postMoneyWantCash =
+      "api/credit-card-cash-withdrawal/v1/settle-cash";
+
+//* validate bank infor
+
+  static const String postValidateBankAccountInfo =
+      "api/credit-card-cash-withdrawal/v1/verify-account";
+
+//* Credit card charges
+
+  static const String getCreditCardCharges =
+      "api/credit-card-cash-withdrawal/v1/charges-list";
+
+  static const String postCalRealTimeCharge =
+      "api/credit-card-cash-withdrawal/v1/calculate-charges";
+
+  static const String postConfirmAndTransaction =
+      "api/credit-card-cash-withdrawal/v1/confirm";
+
+  static const String getCreditCardTransactionList =
+      "api/credit-card-cash-withdrawal/v1/reports";
+
+  static String getCreditCardCashWithdrawalTransactionStatus(
+          {required String transactionId}) =>
+      "api/credit-card-cash-withdrawal/v1/$transactionId";
+
   // helper
-  static  double horizontalPadding = 16.h;
-  static  double verticalPadding = 20.h;
-  static  EdgeInsets screenPadding = EdgeInsets.symmetric(
+  static double horizontalPadding = 16.h;
+  static double verticalPadding = 20.h;
+  static EdgeInsets screenPadding = EdgeInsets.symmetric(
       horizontal: AppConstants.horizontalPadding,
       vertical: AppConstants.verticalPadding);
 
