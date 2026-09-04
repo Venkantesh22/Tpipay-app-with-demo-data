@@ -68,8 +68,10 @@ class ServiceModel {
         "report_url": reportUrl,
         "report_is_static": reportIsStatic,
       };
+
   bool get isMobile => serviceName == "Mobile";
   bool get isDTH => serviceName == "DTH";
   bool get isYesBankMerchantCollection =>
       serviceName == "Yes Bank Merchant Collection";
+  bool get isCreditCardToRentPayment => serviceName == "CC Withdrawal";
 }

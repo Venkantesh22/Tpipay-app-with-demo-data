@@ -24,6 +24,13 @@ class ServiceHelper {
         );
         break;
 
+      case bool _ when service.isCreditCardToRentPayment == true:
+        navigate(
+          context: context,
+          page: const RechargeSelectNumberScreen(isMobile: true),
+        );
+        break;
+
       // case bool _ when service.isDTH == true:
       //   navigate(context: context, page: const DthRechargeScreen());
       //   break;
