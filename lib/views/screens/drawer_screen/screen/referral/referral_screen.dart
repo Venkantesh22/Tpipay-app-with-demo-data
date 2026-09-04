@@ -58,7 +58,8 @@ class _ReferralScreenState extends State<ReferralScreen> {
                       .textTheme
                       .titleLarge
                       ?.copyWith(fontSize: 18, fontWeight: FontWeight.w600)),
-               sizedBoxHeight(height: 20,
+              const SizedBox(
+                height: 20,
               ),
               Text(
                   "Have a referral code? Add it here.\nStart earning points instantly.",
@@ -66,12 +67,14 @@ class _ReferralScreenState extends State<ReferralScreen> {
                       .textTheme
                       .bodySmall
                       ?.copyWith(fontSize: 12, fontWeight: FontWeight.w400)),
-               sizedBoxHeight(height: 20,
+              const SizedBox(
+                height: 20,
               ),
               InviteYOurFriendWidget(
                 authController: authController,
               ),
-               sizedBoxHeight(height: 20,
+              const SizedBox(
+                height: 20,
               ),
               CustomShimmer(
                 isLoading: authController.isLoading,
@@ -117,7 +120,7 @@ class _ReferralScreenState extends State<ReferralScreen> {
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600),
                                 ),
-                                sizedBoxHeight(height: 16),
+                                const SizedBox(height: 16),
                                 Container(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 16, vertical: 12),
@@ -137,7 +140,7 @@ class _ReferralScreenState extends State<ReferralScreen> {
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
-                                sizedBoxHeight(height: 16),
+                                const SizedBox(height: 16),
                                 ElevatedButton(
                                   onPressed: () {
                                     Navigator.pop(dialogContext);
@@ -154,14 +157,16 @@ class _ReferralScreenState extends State<ReferralScreen> {
                   child: const WidgetToShareCode(),
                 ),
               ),
-               sizedBoxHeight(height: 20,
+              const SizedBox(
+                height: 20,
               ),
-              Text("How the referral works",
+              Text("How the Referral Works",
                   style: Helper(context)
                       .textTheme
                       .bodyMedium
                       ?.copyWith(fontSize: 16, fontWeight: FontWeight.w500)),
-               sizedBoxHeight(height: 15,
+              const SizedBox(
+                height: 15,
               ),
               ListView.separated(
                   shrinkWrap: true,
@@ -172,8 +177,8 @@ class _ReferralScreenState extends State<ReferralScreen> {
                         rowOfReferralWorksModel: rowOFReferral);
                   },
                   separatorBuilder: (_, __) {
-                    return  SizedBox(
-                      height: 30.h,
+                    return const SizedBox(
+                      height: 30,
                     );
                   },
                   itemCount: rowOfReferralWorksModelList.length),

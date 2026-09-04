@@ -62,7 +62,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     width: 180,
                     fit: BoxFit.cover,
                   ),
-                  sizedBoxHeight(height: 24),
+                  const SizedBox(height: 24),
                   Text(
                     "Change Password",
                     style: Helper(context).textTheme.bodyLarge?.copyWith(
@@ -70,7 +70,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           fontWeight: FontWeight.w700,
                         ),
                   ),
-                  sizedBoxHeight(height: 24),
+                  const SizedBox(height: 24),
                   Text(
                     "Update your password to keep your account\nsecure and prevent unauthorized access.",
                     textAlign: TextAlign.center,
@@ -79,7 +79,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           fontWeight: FontWeight.w400,
                         ),
                   ),
-                  sizedBoxHeight(height: 18),
+                  const SizedBox(height: 18),
                   AppTextFieldWithHeading(
                     controller: authController.oldPasswordController,
                     hindText: "Enter your old password",
@@ -92,7 +92,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       return null;
                     },
                   ),
-                  sizedBoxHeight(height: 30),
+                  const SizedBox(height: 30),
                   AppTextFieldWithHeading(
                     controller: authController.passwordController,
                     hindText: "Enter your new password",
@@ -104,7 +104,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       return null;
                     },
                   ),
-                  sizedBoxHeight(height: 30),
+                  const SizedBox(height: 30),
                   AppTextFieldWithHeading(
                     controller: authController.confirmPasswordController,
                     hindText: "Enter your Confirm Password",
@@ -117,7 +117,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       return null;
                     },
                   ),
-                  sizedBoxHeight(height: 24),
+                  const SizedBox(height: 24),
                   CustomButton(
                     onTap: () async {
                       if (_formKey.currentState?.validate() ?? false) {
