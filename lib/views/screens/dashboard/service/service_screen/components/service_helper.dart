@@ -25,7 +25,7 @@ class ServiceHelper {
         );
         break;
 
-      case bool _ when service.isCreditCardToRentPayment == true:
+      case bool _ when service.isRentPayment == true:
         navigate(
           context: context,
           page: const CheckCustomerKycScreen(),

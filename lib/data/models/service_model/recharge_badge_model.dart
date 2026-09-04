@@ -73,5 +73,5 @@ class ServiceModel {
   bool get isDTH => serviceName == "DTH";
   bool get isYesBankMerchantCollection =>
       serviceName == "Yes Bank Merchant Collection";
-  bool get isCreditCardToRentPayment => serviceName == "CC Withdrawal";
+  bool get isRentPayment => serviceName == "Rent Payment";
 }

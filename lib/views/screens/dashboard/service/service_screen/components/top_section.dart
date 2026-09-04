@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:lekra/controllers/auth_controller.dart';
 import 'package:lekra/services/constants.dart';
+import 'package:lekra/services/custom_text.dart';
 import 'package:lekra/services/theme.dart';
 import 'package:lekra/views/base/common_button.dart';
 import 'package:lekra/views/base/custom_image.dart';
@@ -17,7 +19,7 @@ class TopSectionService extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.35,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(Assets.imagesServiceTopBg),
@@ -26,7 +28,7 @@ class TopSectionService extends StatelessWidget {
       ),
       child: Column(
         children: [
-           sizedBoxHeight(
+          sizedBoxHeight(
             height: 70,
           ),
           Row(
@@ -36,11 +38,11 @@ class TopSectionService extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    CustomText(
                       "Credit Card Top up & Bank A/c Transfer",
                       overflow: TextOverflow.clip,
                       style: Helper(context).textTheme.bodySmall?.copyWith(
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: white),
                     ),
@@ -48,63 +50,67 @@ class TopSectionService extends StatelessWidget {
                       height: 8,
                     ),
                     (Get.find<AuthController>().userModel?.isKYCDone ?? false)
-                        ? Text(
+                        ? CustomText(
                             "KYC Done",
                             style: Helper(context)
                                 .textTheme
                                 .bodyLarge
                                 ?.copyWith(
-                                    fontSize: 18,
+                                    fontSize: 18.sp,
                                     fontWeight: FontWeight.w700,
                                     color: white),
                           )
                         : Column(
                             children: [
-                              Text(
+                              CustomText(
                                 "Get full KYC\nDone",
                                 style: Helper(context)
                                     .textTheme
                                     .bodyLarge
                                     ?.copyWith(
-                                        fontSize: 18,
+                                        fontSize: 18.sp,
                                         fontWeight: FontWeight.w700,
                                         color: white),
                               ),
-                              const SizedBox(
+                              sizedBoxHeight(
                                 height: 18,
                               ),
                               SizedBox(
-                                width: 140,
+                                width: 140.w,
                                 child: CustomButton(
-                                  radius: 30,
+                                  radius: 30.r,
                                   onTap: () {
                                     navigate(
                                         context: context,
                                         page: const KycFormScreen());
                                   },
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "Upgrade Now",
-                                        style: Helper(context)
-                                            .textTheme
-                                            .bodyLarge
-                                            ?.copyWith(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.w700,
-                                                color: white),
-                                      ),
-                                      const SizedBox(
-                                        width: 5,
-                                      ),
-                                      SvgPicture.asset(
-                                        Assets.svgsArrowInCircle,
-                                        height: 14,
-                                        width: 14,
-                                      )
-                                    ],
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 12.0.w),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        CustomText(
+                                          "Upgrade Now",
+                                          style: Helper(context)
+                                              .textTheme
+                                              .bodyLarge
+                                              ?.copyWith(
+                                                  fontSize: 11.sp,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: white),
+                                        ),
+                                        sizedBoxWidth(
+                                          width: 5,
+                                        ),
+                                        SvgPicture.asset(
+                                          Assets.svgsArrowInCircle,
+                                          height: 14.h,
+                                          width: 14.w,
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -113,7 +119,6 @@ class TopSectionService extends StatelessWidget {
                   ],
                 ),
               ),
-             
             ],
           ),
         ],
