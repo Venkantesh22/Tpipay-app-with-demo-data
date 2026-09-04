@@ -49,8 +49,8 @@ class BalanceOverviewSection extends StatelessWidget {
       ];
 
       return Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: AppConstants.horizontalPadding),
+        padding:
+            EdgeInsets.symmetric(horizontal: AppConstants.horizontalPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -49,8 +49,7 @@ class _PresentAddressSectionState extends State<PresentAddressSection> {
                   return null;
                 },
               ),
-              const SizedBox(
-                height: 20,
+               sizedBoxHeight(height: 20,
               ),
               AppTextFieldWithHeading(
                 bgColor: white,

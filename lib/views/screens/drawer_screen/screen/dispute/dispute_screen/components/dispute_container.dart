@@ -90,8 +90,7 @@ class DisputeContainer extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
+               sizedBoxHeight(height: 10,
               ),
               Row(
                 children: [

@@ -154,8 +154,7 @@ class _RechargeSelectNumberTopSectionState
                   return null;
                 },
               ),
-              const SizedBox(
-                height: 30,
+               sizedBoxHeight(height: 30,
               ),
               AppTextFieldWithHeading(
                 controller: rechargeController.amountController,
@@ -175,8 +174,7 @@ class _RechargeSelectNumberTopSectionState
                   }
                 },
               ),
-              const SizedBox(
-                height: 16,
+               sizedBoxHeight(height: 16,
               ),
             ],
           ),

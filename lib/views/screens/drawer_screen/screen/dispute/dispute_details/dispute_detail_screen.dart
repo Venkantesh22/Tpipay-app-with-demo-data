@@ -111,8 +111,7 @@ class DisputeDetailsScreen extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(
-                height: 6,
+               sizedBoxHeight(height: 6,
               ),
               Text(
                 disputeController.selectDisputeModel?.reason ?? "",
@@ -122,8 +121,7 @@ class DisputeDetailsScreen extends StatelessWidget {
                       color: black,
                     ),
               ),
-              const SizedBox(
-                height: 22,
+               sizedBoxHeight(height: 22,
               ),
               Container(
                 padding:
@@ -186,8 +184,7 @@ class DisputeDetailsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 22,
+               sizedBoxHeight(height: 22,
               ),
               Container(
                 padding:

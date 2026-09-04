@@ -63,8 +63,7 @@ class ProductContainer extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
               ),
-              const SizedBox(
-                height: 8,
+               sizedBoxHeight(height: 8,
               ),
               Text(
                 // productModel?.productPriceFormat ?? "",

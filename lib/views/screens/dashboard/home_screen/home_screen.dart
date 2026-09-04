@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: CircularProgressIndicator(),
           );
         }
-        return const SingleChildScrollView(
+        return  SingleChildScrollView(
           padding: AppConstants.screenPadding,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -136,13 +136,11 @@ class _HomeScreenState extends State<HomeScreen> {
               //   height: 21,
               // ),
               RechargeAndPaySection(),
-              SizedBox(
-                height: 20,
+              sizedBoxHeight(height: 20,
               ),
               IncomeOverviewSection(),
               TodayHourlyGraph(),
-              SizedBox(
-                height: 31,
+              sizedBoxHeight(height: 31,
               ),
               TransactionHistoryWidget()
             ],

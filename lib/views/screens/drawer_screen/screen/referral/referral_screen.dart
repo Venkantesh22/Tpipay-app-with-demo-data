@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lekra/controllers/auth_controller.dart';
 import 'package:lekra/services/constants.dart';
@@ -57,8 +58,7 @@ class _ReferralScreenState extends State<ReferralScreen> {
                       .textTheme
                       .titleLarge
                       ?.copyWith(fontSize: 18, fontWeight: FontWeight.w600)),
-              const SizedBox(
-                height: 20,
+               sizedBoxHeight(height: 20,
               ),
               Text(
                   "Have a referral code? Add it here.\nStart earning points instantly.",
@@ -66,14 +66,12 @@ class _ReferralScreenState extends State<ReferralScreen> {
                       .textTheme
                       .bodySmall
                       ?.copyWith(fontSize: 12, fontWeight: FontWeight.w400)),
-              const SizedBox(
-                height: 20,
+               sizedBoxHeight(height: 20,
               ),
               InviteYOurFriendWidget(
                 authController: authController,
               ),
-              const SizedBox(
-                height: 20,
+               sizedBoxHeight(height: 20,
               ),
               CustomShimmer(
                 isLoading: authController.isLoading,
@@ -156,16 +154,14 @@ class _ReferralScreenState extends State<ReferralScreen> {
                   child: const WidgetToShareCode(),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+               sizedBoxHeight(height: 20,
               ),
               Text("How the referral works",
                   style: Helper(context)
                       .textTheme
                       .bodyMedium
                       ?.copyWith(fontSize: 16, fontWeight: FontWeight.w500)),
-              const SizedBox(
-                height: 15,
+               sizedBoxHeight(height: 15,
               ),
               ListView.separated(
                   shrinkWrap: true,
@@ -176,8 +172,8 @@ class _ReferralScreenState extends State<ReferralScreen> {
                         rowOfReferralWorksModel: rowOFReferral);
                   },
                   separatorBuilder: (_, __) {
-                    return const SizedBox(
-                      height: 30,
+                    return  SizedBox(
+                      height: 30.h,
                     );
                   },
                   itemCount: rowOfReferralWorksModelList.length),

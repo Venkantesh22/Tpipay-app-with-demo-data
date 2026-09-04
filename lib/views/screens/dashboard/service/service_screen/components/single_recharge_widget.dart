@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lekra/data/models/service_model/recharge_badge_model.dart';
 import 'package:lekra/services/theme.dart';
 import 'package:lekra/views/base/custom_image.dart';
@@ -37,8 +38,8 @@ class SingleRechargeWidget extends StatelessWidget {
           child: ClipOval(
             child: Center(
               child: SizedBox(
-                height: 40,
-                width: 40,
+                height: 40.h,
+                width: 40.w,
                 child: CustomImage(
                   path: serviceModel?.serviceImage ?? "",
                   height: double.infinity,

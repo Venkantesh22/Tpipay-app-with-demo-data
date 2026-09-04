@@ -169,8 +169,7 @@ class _RechargePayScreenState extends State<RechargePayScreen> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 15,
+               sizedBoxHeight(height: 15,
               ),
               CustomButton(
                 onTap: () {},

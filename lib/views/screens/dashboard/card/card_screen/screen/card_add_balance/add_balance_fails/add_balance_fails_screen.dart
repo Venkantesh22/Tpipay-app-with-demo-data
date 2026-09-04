@@ -141,8 +141,7 @@ class AddBalanceFailsScreen extends StatelessWidget {
                   itemCount: _topUpFailsModelList.length,
                 ),
               ),
-              SizedBox(
-                height: 30,
+              sizedBoxHeight(height: 30,
               ),
               Text(
                 overflow: TextOverflow.clip,

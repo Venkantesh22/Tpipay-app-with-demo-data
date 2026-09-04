@@ -129,7 +129,7 @@ class _CreateDisputeScreenState extends State<CreateDisputeScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
+              sizedBoxHeight(
                 height: 45,
               ),
               CustomButton(

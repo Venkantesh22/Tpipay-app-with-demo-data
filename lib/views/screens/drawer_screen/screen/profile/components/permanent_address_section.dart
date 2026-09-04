@@ -60,8 +60,7 @@ class _PermanentAddressSectionState extends State<PermanentAddressSection> {
                   return null;
                 },
               ),
-              const SizedBox(
-                height: 20,
+               sizedBoxHeight(height: 20,
               ),
               CustomShimmer(
                 isLoading: basicController.isLoading,

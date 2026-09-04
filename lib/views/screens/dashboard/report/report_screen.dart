@@ -28,8 +28,7 @@ class _ReportScreenState extends State<ReportScreen> {
           padding: AppConstants.screenPadding,
           child: Column(
             children: [
-              const SizedBox(
-                height: 70,
+               sizedBoxHeight(height: 70,
               ),
               GestureDetector(
                 onTap: () {

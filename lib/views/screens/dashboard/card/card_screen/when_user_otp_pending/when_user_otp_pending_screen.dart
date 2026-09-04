@@ -306,8 +306,7 @@ class WhenUserOtpPendingScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 50,
+              sizedBoxHeight(height: 50,
               )
             ],
           ),

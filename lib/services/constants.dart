@@ -254,9 +254,9 @@ class AppConstants {
       'api/prepaid-card/v1/mini-statement';
 
   // helper
-  static const double horizontalPadding = 16;
-  static const double verticalPadding = 20;
-  static const EdgeInsets screenPadding = EdgeInsets.symmetric(
+  static  double horizontalPadding = 16.h;
+  static  double verticalPadding = 20.h;
+  static  EdgeInsets screenPadding = EdgeInsets.symmetric(
       horizontal: AppConstants.horizontalPadding,
       vertical: AppConstants.verticalPadding);
 
