@@ -1,8 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:lekra/controllers/auth_controller.dart';
+import 'package:lekra/main.dart';
+import 'package:lekra/views/screens/widget/session_conflict_dialog/session_conflict_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../services/constants.dart';
@@ -16,6 +20,8 @@ class ApiClient extends GetConnect implements GetxService {
   String? token;
 
   Map<String, String>? _mainHeaders;
+
+  bool _sessionConflictDialogShowing = false;
 
   ApiClient({required this.appBaseUrl, required this.sharedPreferences}) {
     try {
@@ -67,6 +73,26 @@ class ApiClient extends GetConnect implements GetxService {
 
       log('====> GetX Response: [${response.statusCode}] $uri', name: name);
       log('${response.bodyString}', name: name);
+      // ============================================================
+      // CHECK authorised_status FROM RESPONSE
+      // ============================================================
+
+      if (response.body is Map) {
+        final Map<String, dynamic> responseBody =
+            Map<String, dynamic>.from(response.body);
+
+        final authorisedStatus = responseBody['authorised_status'];
+
+        if (authorisedStatus == false) {
+          log(
+            'authorised_status=false detected in POST response.',
+            name: 'AUTHORIZATION',
+          );
+
+          await _showSessionConflictDialog();
+        }
+      }
+
       response = handleResponse(response);
       if (kDebugMode) {
         // log('====> GetX Response: [${response.statusCode}] $u ri\n${uri.contains('astros') || uri.contains('shop') || uri.contains('shop') ? response.body[0] : response.body}');
@@ -108,6 +134,26 @@ class ApiClient extends GetConnect implements GetxService {
             name
           ]}${response.bodyString}',
           name: name);
+      // ============================================================
+      // CHECK authorised_status FROM RESPONSE
+      // ============================================================
+
+      if (response.body is Map) {
+        final Map<String, dynamic> responseBody =
+            Map<String, dynamic>.from(response.body);
+
+        final authorisedStatus = responseBody['authorised_status'];
+
+        if (authorisedStatus == false) {
+          log(
+            'authorised_status=false detected in POST response.',
+            name: 'AUTHORIZATION',
+          );
+
+          await _showSessionConflictDialog();
+        }
+      }
+
       response = handleResponse(response);
       log('====> GetX Response: [${response.statusCode}] $uri');
       if (kDebugMode) {
@@ -303,6 +349,72 @@ class ApiClient extends GetConnect implements GetxService {
               "API ERROR CAC(/${"${postUri.path.split('/').last} ============ " /*+ getResponseStatus(response)*/})",
           level: 1);
       return null;
+    }
+  }
+
+  Future<void> _showSessionConflictDialog() async {
+    if (_sessionConflictDialogShowing) {
+      return;
+    }
+
+    _sessionConflictDialogShowing = true;
+
+    log(
+      'Opening SessionConflictDialog',
+      name: 'AUTHORIZATION',
+    );
+
+    try {
+      final context = navigatorKey.currentState?.overlay?.context;
+
+      if (context == null) {
+        log(
+          'Navigator overlay context is NULL',
+          name: 'AUTHORIZATION',
+        );
+
+        _sessionConflictDialogShowing = false;
+        return;
+      }
+
+      await showDialog(
+        context: context,
+        barrierDismissible: false,
+        useRootNavigator: true,
+        builder: (dialogContext) {
+          log(
+            'SessionConflictDialog builder called',
+            name: 'AUTHORIZATION',
+          );
+
+          return SessionConflictDialog(
+            onLogout: () async {
+              log(
+                'SessionConflictDialog requested logout',
+                name: 'AUTHORIZATION',
+              );
+
+              final logoutContext = navigatorKey.currentState?.overlay?.context;
+
+              if (logoutContext != null && Get.isRegistered<AuthController>()) {
+                final authController = Get.find<AuthController>();
+
+                await authController.logout(logoutContext);
+              }
+
+              _sessionConflictDialogShowing = false;
+            },
+          );
+        },
+      );
+    } catch (e, stackTrace) {
+      log(
+        'Error showing SessionConflictDialog: '
+        '$e\n$stackTrace',
+        name: 'AUTHORIZATION',
+      );
+
+      _sessionConflictDialogShowing = false;
     }
   }
 }
