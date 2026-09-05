@@ -45,7 +45,7 @@ class _PaymentSoundNotificationScreenState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Select Off/On Payment sound notification",
+                  "Enable Payment Sound Notifications",
                   overflow: TextOverflow.ellipsis,
                   style: Helper(context)
                       .textTheme

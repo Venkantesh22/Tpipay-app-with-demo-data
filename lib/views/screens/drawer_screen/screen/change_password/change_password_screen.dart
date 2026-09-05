@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:lekra/controllers/auth_controller.dart';
 import 'package:lekra/services/constants.dart';
@@ -17,6 +18,16 @@ class ChangePasswordScreen extends StatefulWidget {
 }
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+@override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final authController = Get.find<AuthController>();
+      authController.passwordController.clear();
+      authController.confirmPasswordController.clear();
+      authController.update();
+    });
+  }
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
   bool obscureText = true;
@@ -107,7 +118,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   const SizedBox(height: 30),
                   AppTextFieldWithHeading(
                     controller: authController.confirmPasswordController,
-                    hindText: "Enter your Confirm Password",
+                    hindText: "Re-enter your password",
                     heading: "Confirm Password",
                     obscureText: true,
                     validator: (value) {
